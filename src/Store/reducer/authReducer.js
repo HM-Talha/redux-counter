@@ -1,13 +1,13 @@
 const INITIALSTATE = {
   userName: "",
   userPassword: "",
-  isLogged: false,
+  isLogged: null,
 };
 
 const loginReducer = (state = INITIALSTATE, action) => {
   switch (action.type) {
     case "LOGIN_ACTION":
-      console.log("actiom", action.type);
+      // console.log("actiom", action.type);
       return {
         ...state,
         userName: action.payload.name,
@@ -19,12 +19,11 @@ const loginReducer = (state = INITIALSTATE, action) => {
 };
 const isLoggedReducer = (state = INITIALSTATE, action) => {
   switch (action.type) {
-    case "LOGIN_ACTION":
-      console.log("actiom", action.type);
+    case "ISLOGGED_BOOLEAN":
+      console.log("actiom", action.payload);
       return {
         ...state,
-        userName: action.payload.name,
-        userPassword: action.payload.password,
+        isLogged: action.payload
       };
     default:
       return state;

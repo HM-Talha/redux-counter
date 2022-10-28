@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginAction, ProtectedRoutBoolean } from "./action/authAction";
-import { loginReducer } from "./reducer/authReducer";
+import { loginReducer, isLoggedReducer } from "./reducer/authReducer";
 const Login = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const state = useSelector((state) => state.loginReducer);
+  const isLoged = useSelector((state) => state.isLoggedReducer);
+  console.log("isLoggedReducer", isLoged);
   const formHandler = (e) => {
     e.preventDefault();
     dispatch(ProtectedRoutBoolean(true));

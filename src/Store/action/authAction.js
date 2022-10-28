@@ -9,7 +9,7 @@ const loginAction = (data) => {
 };
 
 const ProtectedRoutBoolean = (isLogged) => {
-  // console.log("isLoged", isLoged);
+  console.log("isLoged", isLogged );
   return (dispatch) => {
     dispatch({
       type: "ISLOGGED_BOOLEAN",

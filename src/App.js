@@ -8,22 +8,22 @@ import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import Counter from "./Counter";
 import ProtectedRoutes from "./ProtectedRoutes";
 import Login from "./Store/Login";
-
+import { useSelector } from "react-redux";
+import { loginAction, ProtectedRoutBoolean } from "./Store/action/authAction";
+import { loginReducer, isLoggedReducer } from "./Store/action/authAction";
 // import { AddCounterAction, MinusCounter } from "./Store/action/counterAction.";
 function App() {
-  // let [counter, setCounter] = useState(0);
-  // const dispatch = useDispatch();
-  // const { counterReducer } = useSelector((state) => state);
-  // console.log("selector", counterReducer);
+  const isLoged = useSelector((state) => state.isLoggedReducer);
+  console.log("isLoged", isLoged);
 
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route element={<ProtectedRoutes />} isLogged={true}>
-            <Route path="/counter" element={<Counter />} />
-          </Route>
+          {/* <Route element={<ProtectedRoutes />} isLogged={false}> */}
+          <Route path="/counter" element={<Counter />} />
+          {/* </Route> */}
         </Routes>
       </BrowserRouter>
     </>
